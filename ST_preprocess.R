@@ -16,7 +16,7 @@ ST_preprocess <- function(outDir, study_ID, file_suffix, genome) {
   #   QC-filtered .h5 file.
   
   resDir <- file.path(outDir, study_ID, "suppl")
-  allh5 <- list.files(resDir, pattern = '*h5', recursive = T, full.names = T)
+  allh5 <- list.files(resDir, pattern = '*h5$', recursive = T, full.names = T)
   suffix_list <- unique(c('_gene_count.h5', '_filtered_feature_bc_matrix.h5', '.h5', file_suffix))
   samples <- gsub(paste(suffix_list,  collapse= '|'), '', basename(allh5))
   print(samples)
